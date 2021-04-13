@@ -201,17 +201,15 @@ def wind_plot(
 
     if plot_title:
         fig.suptitle(plot_title)
-    fig.savefig("../paper_figures/figure4_wind_properties.pdf", dpi=300)
-    # fig.savefig("../paper_figures/fiducial_wind.png", dpi=300)
-    plt.close()
+    plt.show()
 
     return
 
 
-root = "tde_opt_cmf_lines"
+root = "tde_opt"
 output_name = "wind"
 projection = "rectilinear"
-path = "../model_grids/new_grid_cmf_spec_lines/3e6/Vinf/0_3"
+path = "../data/3e6/Vinf/0_3"
 
 wind_names = ["t_e", "ne", "ip", "H_i01", "v_l", "v_rot"]
 wind_types = ["wind", "wind", "wind", "ion_density", "wind", "wind"]

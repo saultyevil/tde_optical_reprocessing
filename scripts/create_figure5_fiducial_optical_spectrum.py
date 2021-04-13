@@ -1,6 +1,5 @@
 from pypython import spectrum
 from matplotlib import pyplot as plt
-from platform import system
 from pypython.physics import constants
 from pypython import plotutil
 
@@ -10,13 +9,9 @@ SCALE_FACTOR = DEFAULT_DISTANCE ** 2 / SCALED_DISTANCE ** 2
 
 plotutil.set_default_rcparams()
 
-root = "tde_opt_cmf_spec"
+root = "tde_opt"
 m_bh = "3e6"
-if system() == "Darwin":
-    home = "/Users/saultyevil/"
-else:
-    home = "/home/saultyevil/"
-home += "/PySims/tde_optical/model_grids/new_grid_cmf_spec/" + m_bh + "/"
+home = "../data/" + m_bh + "/"
 
 grids = [
     ["Mdot_acc/0_05", "Mdot_acc/0_15", "Mdot_acc/0_5"],
@@ -125,6 +120,4 @@ ax.set_ylabel("Flux Density at 100 Mpc\n" + r"[erg s$^{-1}$ cm$^{-2}$ \AA$^{-1}$
 ax.set_xlabel(r"Rest frame Wavelength [\AA]")
 
 fig.tight_layout(rect=[0.02, 0.02, 0.98, 0.98])
-fig.savefig("../paper_figures/figure5_fiducial_optical_spectrum.pdf", dpi=300)
-# fig.savefig("../paper_figures/fiducial_optical.png", dpi=300)
-plt.close()
+plt.show()

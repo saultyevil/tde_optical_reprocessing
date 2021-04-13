@@ -1,6 +1,5 @@
 from pypython import spectrum
 from matplotlib import pyplot as plt
-from platform import system
 from matplotlib.ticker import ScalarFormatter, MultipleLocator
 from pypython.physics import constants
 from pypython import plotutil
@@ -13,11 +12,7 @@ plotutil.set_default_rcparams()
 
 root = "tde_opt_cmf_spec"
 m_bh = "3e6"
-if system() == "Darwin":
-    home = "/Users/saultyevil/"
-else:
-    home = "/home/saultyevil/"
-home += "/PySims/tde_optical/model_grids/new_grid_cmf_spec/" + m_bh + "/"
+home = "../data/" + m_bh + "/"
 
 grids = [
     ["Mdot_acc/0_05", "Mdot_acc/0_15", "Mdot_acc/0_5"],
@@ -87,11 +82,7 @@ ax = ax.flatten()
 
 root = "tde_opt_cmf_spec"
 fiducial = "/Vinf/0_3/"
-if system() == "Darwin":
-    home_bh = "/Users/saultyevil/"
-else:
-    home_bh = "/home/saultyevil/"
-home_bh += "/PySims/tde_optical/model_grids/new_grid_cmf_spec/"
+home_bh = "../data/"
 models_bh = [
     home_bh + "1e6" + fiducial,
     home_bh + "3e6" + fiducial,
@@ -145,7 +136,4 @@ fig.text(
 fig.text(0.5, 0.02, r"Rest frame Wavelength [\AA]", ha="center", va="center")
 fig.tight_layout(rect=[0.02, 0.02, 0.98, 0.98])
 fig.subplots_adjust(wspace=0, hspace=0)
-
-fig.savefig("../paper_figures/figure6_optical_spectra.pdf", dpi=300)
-# fig.savefig("../paper_figures/model_optical_spectra_i60.png", dpi=300)
-plt.close()
+plt.show()

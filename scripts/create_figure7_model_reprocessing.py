@@ -1,7 +1,6 @@
 import numpy as np
 from pypython import spectrum
 from matplotlib import pyplot as plt
-from platform import system
 from pypython.physics.constants import C, ANGSTROM, PARSEC
 from pypython import plotutil
 import matplotlib
@@ -15,12 +14,8 @@ plotutil.set_default_rcparams()
 lw = 2
 alpha = 0.7
 sm = 5
-root = "tde_opt_cmf_spec"
-if system() == "Darwin":
-    os_root = "/Users/saultyevil/"
-else:
-    os_root = "/home/saultyevil/"
-home = os_root + "/PySims/tde_optical/model_grids/new_grid_cmf_spec/"
+root = "tde_opt"
+home = "../data/"
 
 grids = [
     ["3e6/Mdot_acc/0_05", "3e6/Mdot_acc/0_15", "3e6/Mdot_acc/0_5"],
@@ -146,6 +141,4 @@ fig.text(
 
 fig.tight_layout(rect=[0.015, 0.015, 0.985, 0.985])
 fig.subplots_adjust(hspace=0, wspace=0)
-fig.savefig("../paper_figures/figure7_model_reprocessing.pdf", dpi=300)
-# fig.savefig("../paper_figures/model_reprocessing.png", dpi=300)
-plt.close()
+plt.show()

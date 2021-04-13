@@ -39,12 +39,8 @@ important_lines = [
 fmt = ScalarFormatter()
 fmt.set_scientific(False)
 
-new = spectrum.get_spectrum_files(cd="../tests/pcygni/rin_grid")
-old = list(
-    dict.fromkeys(spectrum.get_spectrum_files(this_root="tde_opt_cmf_spec", cd="../model_grids/new_grid_cmf_spec/3e6"))
-)
-model_new = "../tests/pcygni/rin_grid/Vinf/1_0/tde_opt_cmf.spec"
-model_old = "../model_grids/new_grid_cmf_spec/3e6/Vinf/1_0/tde_opt_cmf_spec.spec"
+model_new = "../data/pycyg_model/tde_opt.spec"
+model_old = "../data/3e6/Vinf/1_0/tde_opt.spec"
 
 root_new, cd_new = util.get_root_from_filepath(model_new)
 root_old, cd_old = util.get_root_from_filepath(model_old)
@@ -88,6 +84,4 @@ ax[1].text(0.95, 0.93, r"75$^{\circ}$", transform=ax[1].transAxes, fontsize=17)
 
 fig.tight_layout(rect=[0.02, 0.02, 0.98, 0.98])
 fig.subplots_adjust(hspace=0)
-fig.savefig("../paper_figures/figure11_Pcyg_model.pdf", dpi=300)
-# fig.savefig("../paper_figures/pcygni_model_test.png", dpi=300)
-plt.close()
+plt.show()
